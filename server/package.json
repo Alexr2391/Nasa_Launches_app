@@ -1,0 +1,20 @@
+{
+  "name": "6.nasa_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "devstart": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.0.4",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  }
+}
