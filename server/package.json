@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test-watch": "jest --watch",
     "start": "node src/index.js",
     "devstart": "nodemon src/index.js"
   },
@@ -16,5 +17,9 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
   }
 }

@@ -34,7 +34,7 @@ function httpAddNewLaunch(req, res) {
 
     if(isNaN(launch.launchDate)) {
         return res.status(400).json({
-            error: "Invalid Date"
+            error: "Invalid Launch Date"
         })
     };
 
