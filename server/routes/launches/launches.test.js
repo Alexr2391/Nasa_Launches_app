@@ -1,5 +1,5 @@
-const request = require('supertest')
-const app = require('../../src/app')
+const request = require('supertest');
+const app = require('../../src/app');
 
 
 const completeLaunchData = {
@@ -46,6 +46,7 @@ describe('Test POST /Launch', () => {
 
             const requestDate = new Date(completeLaunchData.launchDate).valueOf();
             const responseDate =new Date(response.body.launchDate).valueOf();
+            
             expect(responseDate).toBe(requestDate);
 
             expect(response.body).toMatchObject(
@@ -62,7 +63,7 @@ describe('Test POST /Launch', () => {
 
             expect(response.body).toStrictEqual({
                 error: 'Mission required launched property'
-            })
+            });
     });
     test('It should also catch invalid dates', async() => {
         const response = await request(app)
@@ -73,6 +74,6 @@ describe('Test POST /Launch', () => {
 
             expect(response.body).toStrictEqual({
                 error: "Invalid Launch Date"
-            })
+            });
     });
 });

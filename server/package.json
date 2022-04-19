@@ -7,7 +7,8 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "start": "node src/index.js",
-    "devstart": "nodemon src/index.js"
+    "devstart": "nodemon src/index.js",
+    "cluster": "pm2 start src/index.js -i max"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +17,9 @@
     "csv-parse": "^5.0.4",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "morgan": "^1.10.0"
+    "mongoose": "^6.3.0",
+    "morgan": "^1.10.0",
+    "pm2": "^5.2.0"
   },
   "devDependencies": {
     "jest": "^27.5.1",
