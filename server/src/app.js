@@ -5,9 +5,7 @@ const morgan = require('morgan')
 const app = express();
 const path = require('path');
 
-const planetsRouter = require('../routes/planets/planets.routes');
-const launchesRouter = require('../routes/launches/launches.router')
-
+const api = require('../routes/api')
 
 app.use(cors({
     origin: 'http://localhost:3000'
@@ -17,12 +15,12 @@ app.use(morgan(
     'common'
 ))
 
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, '..', '/public')));
 
-app.use('/planets', planetsRouter);
-app.use('/launches', launchesRouter)
+app.use('/v1', api);
 
 // /* in the route request to allow client-side routing
 app.get('/*', (req, res) => {

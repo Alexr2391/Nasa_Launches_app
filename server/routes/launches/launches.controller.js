@@ -12,6 +12,7 @@ async function httpGetAllLaunches(get, res) {
 async function httpAddNewLaunch(req, res) {
     const launch = req.body;
 
+    
     const {
         mission, 
         rocket, 
