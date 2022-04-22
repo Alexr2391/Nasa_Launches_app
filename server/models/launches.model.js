@@ -5,20 +5,6 @@ require('dotenv').config()
 
 const DEFAULT_FLIGHT_NUMBER  = 100;
 
-const launch = {
-    flightNumber: DEFAULT_FLIGHT_NUMBER, //flight_number
-    mission: 'Kepler exploration X', //name
-    rocket: 'Explorer IS1', // rocket.name
-    launchDate: new Date('December 27, 2030'), //date_local
-    target: 'Kepler-442 b', //not applicable
-    customers: ['ZTM', 'NASA'], //payload.customers for each payload
-    upcoming: true, //upcoming
-    success: true, //success
-};
-
-saveLaunch(launch);
-
-
 async function populateLaunches() {
     const response = await axios.post(process.env.SPACEX_API_URL,{
         query: {},
@@ -112,10 +98,14 @@ async function getLatestFlightNumber() {
         return latestLaunch.flightNumber;
 };
 
-async function getAllLaunches() {
-    return await launchesDatabase.find({}, {
+async function getAllLaunches(skip, limit) {
+    return await launchesDatabase
+    .find({}, {
     "_id": 0, "__v": 0,
-    });
+    })
+    .sort({flightNumber : 1})
+    .skip(skip)
+    .limit(limit);
 };
 
 async function saveLaunch(launch) {
